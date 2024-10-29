@@ -37,6 +37,11 @@ export default function Header() {
               <span className={`${pathname === "/events" && "!text-secondary"}  text-white font-medium hover:opacity-70 transition-opacity text-base`}>Events</span>
             </Button>
           </Link>
+          <Link href='/voting'>
+            <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
+              <span className={`${pathname === "/voting" && "!text-secondary"}  text-white font-medium hover:opacity-70 transition-opacity text-base`}>Voting</span>
+            </Button>
+          </Link>
           <Link href='/cart'>
             <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
               <div className='flex items-center hover:opacity-70 transition-opacity gap-x-1'>

@@ -4,6 +4,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 const roboto = Roboto({ weight: ["300", "400", "500", "700", "900"], subsets: ["latin"], display: "swap" });
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Bluske",
@@ -20,7 +21,8 @@ export default function RootLayout({
       <body className={`${roboto.className} overflow-x-hidden w-full relative scrollbar-thin scrollbar-none`}>
         <NextUIProvider>
         <Header />
-        {children}
+          {children}
+          <Footer/>
         </NextUIProvider>
       </body>
     </html>
