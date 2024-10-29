@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Button } from "@nextui-org/react";
 import { Logo } from "../../svgAssets";
 import Link from "next/link";
-import { Cart } from "../../icons";
+import { Cart } from "../icons";
 import { usePathname } from "next/navigation";
 import { IoMenuSharp } from "react-icons/io5";
 import SideNav from "./SideNav";
@@ -39,7 +39,7 @@ export default function Header() {
           </Link>
           <Link href='/voting'>
             <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
-              <span className={`${pathname === "/voting" && "!text-secondary"}  text-white font-medium hover:opacity-70 transition-opacity text-base`}>Voting</span>
+              <span className={`${pathname.startsWith("/voting") && "!text-secondary"}  text-white font-medium hover:opacity-70 transition-opacity text-base`}>Voting</span>
             </Button>
           </Link>
           <Link href='/cart'>

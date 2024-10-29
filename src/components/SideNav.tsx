@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Button } from "@nextui-org/react";
 import Link from "next/link";
-import { Cart } from "../../icons";
+import { Cart } from "../icons";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
@@ -12,7 +12,7 @@ export default function SideNav({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boo
   return (
     <AnimatePresence>
       {isMenuOpen && (
-        <motion.div initial={{ opacity: 0, }} animate={{ opacity: 1 }} exit={{ opacity: 0}} transition={{ type: "tween" }} className='w-full fixed top-0  z-40 h-[100svh] flex flex-col gap-6 p-4 bg-background-secondary'>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ type: "tween" }} className='w-full fixed top-0  z-40 h-[100svh] flex flex-col gap-6 p-4 bg-background-secondary'>
           <div className='w-full justify-end items-center flex'>
             <Button onPress={() => setIsMenuOpen(false)} disableRipple className='h-fit gap-x-1 !outline-none flex items-center justify-start p-2 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
               <AiOutlineClose className='size-5' />

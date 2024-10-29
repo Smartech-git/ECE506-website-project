@@ -72,3 +72,29 @@ export const Youtube = () => {
     </svg>
   );
 };
+
+export const ChveronLeft = ({ className }: { className: string }) => {
+  return (
+    <svg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M13.2929 6.79297L7.58594 12.5L13.2929 18.207L14.7069 16.793L10.4139 12.5L14.7069 8.20697L13.2929 6.79297Z' fill='black' className={className} />
+    </svg>
+  );
+};
+
+export const CheveronRight = () => {
+  return (
+    <svg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M6.47099 11.7998L10.2757 7.9951L6.47099 4.19043L5.52832 5.1331L8.39032 7.9951L5.52832 10.8571L6.47099 11.7998Z' fill='black' />
+    </svg>
+  );
+};
+
+export const SelectorIcon = () => {
+  return (
+    <svg aria-hidden='true' fill='none' focusable='false' height='1em' role='presentation' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5' viewBox='0 0 24 24' width='1em'>
+      <path d='M0 0h24v24H0z' fill='none' stroke='none' />
+      <path d='M8 9l4 -4l4 4' className='fill-black' />
+      <path d='M16 15l-4 4l-4 -4' className='fill-black' />
+    </svg>
+  );
+};

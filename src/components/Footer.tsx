@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Instagram, LinkedIn, Youtube } from "../../icons";
+import { Facebook, Instagram, LinkedIn, Youtube } from "../icons";
 
 export default function Footer() {
   return (

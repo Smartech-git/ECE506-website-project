@@ -8,8 +8,9 @@ import Countdown from "react-countdown";
 import Image from "next/image";
 import TeamCards from "@/components/TeamCards";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
-import { ArrowLeft, ArrowRigt } from "../../../icons";
+import { ArrowLeft, ArrowRigt } from "../../icons";
 import ScoreSheet from "@/components/voting/ScoreSheet";
+import Link from "next/link";
 
 export default function OnlineVoting() {
   const [showCountdown, setShowCountdown] = useState(false);
@@ -108,7 +109,7 @@ export default function OnlineVoting() {
             <p className='text-white font-medium max-w-[80%] text-center text-lg'>Support your favorite team by casting your votes. Every vote counts!</p>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", delay: 0.2 }}>
-            <Button disableRipple className='h-[56px] w-[126px] group gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit rounded-none border-none bg-white data-[hover=true]:!bg-tertiary !opacity-100 transition-colors shadow-none'>
+            <Button disableRipple className='h-[56px] w-[126px] group gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit rounded-none border-none bg-white data-[hover=true]:!bg-tertiary hover:bg-tertiary !opacity-100 transition-colors shadow-none'>
               <span className='text-black group-hover:text-white transition-colors text-lg text-nowrap font-medium'>Vote Now</span>
             </Button>
           </motion.div>
@@ -161,9 +162,11 @@ export default function OnlineVoting() {
               <h1 className='sm:text-5xl text-4xl font-bold text-black'>Choose Your Favorite Teams</h1>
               <p className='text-base font-medium  w-full text-black'>Cast your votes and help your favorite crews reach the finals!</p>
             </div>
-            <Button disableRipple className='h-[56px] md:flex hidden group gap-x-1 !outline-none items-center px-4 py-0 !min-w-fit rounded-none border border-black bg-background-secondary data-[hover=true]:!bg-secondary data-[hover=true]:!border-secondary !opacity-100 transition-colors shadow-none'>
-              <span className='text-black group-hover:text-white transition-colors text-lg text-nowrap font-medium'>See Full Lineup</span>
-            </Button>
+            <Link href='/voting/team-lineup'>
+              <Button disableRipple className='h-[56px] md:flex hidden group gap-x-1 !outline-none items-center px-4 py-0 !min-w-fit rounded-none border border-black bg-background-secondary data-[hover=true]:!bg-secondary data-[hover=true]:!border-secondary !opacity-100 transition-colors shadow-none'>
+                <span className='text-black group-hover:text-white transition-colors text-lg text-nowrap font-medium'>See Full Lineup</span>
+              </Button>
+            </Link>
           </div>
         </div>
         <ScrollShadow ref={divTarget} onScroll={(e) => handleOnScroll(e)} orientation='horizontal' className='w-full overflow-x-scroll h-fit rounded-[20px] scrollbar-none'>
@@ -183,9 +186,11 @@ export default function OnlineVoting() {
             </button>
           </div>
         </div>
-        <Button disableRipple className='h-[56px] mr-auto md:hidden group gap-x-1 !outline-none flex items-center px-4 py-0 !min-w-fit rounded-none border border-black bg-background-secondary data-[hover=true]:!bg-secondary data-[hover=true]:!border-secondary !opacity-100 transition-colors shadow-none'>
-          <span className='text-black group-hover:text-white transition-colors text-lg text-nowrap font-medium'>See Full Lineup</span>
-        </Button>
+        <Link href='/voting/team-lineup'>
+          <Button disableRipple className='h-[56px] mr-auto md:hidden group gap-x-1 !outline-none flex items-center px-4 py-0 !min-w-fit rounded-none border border-black bg-background-secondary data-[hover=true]:!bg-secondary data-[hover=true]:!border-secondary !opacity-100 transition-colors shadow-none'>
+            <span className='text-black group-hover:text-white transition-colors text-lg text-nowrap font-medium'>See Full Lineup</span>
+          </Button>
+        </Link>
       </section>
       <section className='w-full h-fit relative overflow-x-hidden gap-x-4 gap-y-8 bg-background-tertiary flex flex-col items-center justify-center py-24 lg:px-16 sm:px-8 px-4'>
         <div className='w-fit absolute my-auto flex-none'>
