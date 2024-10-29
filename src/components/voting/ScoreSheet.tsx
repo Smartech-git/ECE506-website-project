@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function () {
+export default function ScoreSheet () {
   return (
     <div className='sm:w-[450px] gap-y-6 w-full flex flex-col'>
       <div className='flex gap-4 items-end'>
