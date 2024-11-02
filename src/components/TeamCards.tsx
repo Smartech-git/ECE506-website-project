@@ -12,7 +12,7 @@ export default function TeamCards() {
         <div className='flex w-full flex-col bg-white px-[20px] py-4'>
           <div className='w-full flex items-center justify-between'>
             <h1 className='font-semibold text-lg text-black'>Team Name</h1>
-            <span className='text-black text-[20px] font-semibold'>{`${getSymbolFromCurrency("NGN")}300`}</span>
+            <span className='text-black text-[20px] font-semibold'>{`${getSymbolFromCurrency("NGN")}200`}</span>
           </div>
           <div className='w-full'>
             <span className='text-sm font-normal text-black'>Support Us</span>

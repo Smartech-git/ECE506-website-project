@@ -1,5 +1,6 @@
 import React from "react";
 import { Facebook, Instagram, LinkedIn, Youtube } from "../icons";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -11,18 +12,30 @@ export default function Footer() {
           <span className='text-white text-lg font-semibold hover:text-secondary transition-colors cursor-pointer'>About Us</span>
         </div>
         <div className='flex gap-2 lg:ml-auto items-center'>
-          <div className='cursor-pointer'>
-            <Facebook />
-          </div>
-          <div className='cursor-pointer'>
-            <Instagram />
-          </div>
-          <div className='cursor-pointer'>
-            <LinkedIn />
-          </div>
-          <div className='cursor-pointer'>
+          <Link href=' https://web.facebook.com/profile.php?id=61564082315233' passHref>
+            <a target='_blank' rel='noopener noreferrer'>
+              <div className='cursor-pointer'>
+                <Facebook />
+              </div>
+            </a>
+          </Link>
+          <Link href='https://www.instagram.com/bluske.ent/' passHref>
+            <a target='_blank' rel='noopener noreferrer'>
+              <div className='cursor-pointer'>
+                <Instagram />
+              </div>
+            </a>
+          </Link>
+          <Link href='https://www.linkedin.com/company/bluske-ent' passHref>
+            <a target='_blank' rel='noopener noreferrer'>
+              <div className='cursor-pointer'>
+                <LinkedIn />
+              </div>
+            </a>
+          </Link>
+          {/* <div className='cursor-pointer'>
             <Youtube />
-          </div>
+          </div> */}
         </div>
       </div>
       <div className='border-t flex justify-center w-full pt-8 border-white'>

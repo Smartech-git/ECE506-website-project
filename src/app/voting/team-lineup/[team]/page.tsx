@@ -11,24 +11,23 @@ import { useGlobal } from "@/context/GLobalContext";
 import { getCart_data, setCart_data } from "@/util/localStorage";
 import { AnimatePresence, motion } from "framer-motion";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Team() {
   const router = useRouter();
   const { cart, setCart } = useGlobal();
-  const [cartItem, setCartItem] = useState<any>({ qty: 1, price: 300, votes: 100, data: "" });
+  const [cartItem, setCartItem] = useState<any>({ qty: 1, data: "" });
   const [key, setkey] = useState(0);
 
   const handleSelect = (e: any) => {
     setCartItem((prev: any) => ({
       qty: Number(e.target.value),
-      price: Number(e.target.value) * 300,
-      votes: Number(e.target.value) * 100,
       data: "",
     }));
   };
 
   const handleAddToCart = () => {
-    setCart((prev: any) => [...prev, cartItem]);
+    setCart((prev: any) => [cartItem]);
     setCart_data([cartItem]);
   };
 
@@ -48,10 +47,10 @@ export default function Team() {
               </div>
               <h1 className='sm:text-5xl text-4xl font-bold text-black'>Team Name</h1>
               <div className='flex items-center gap-2'>
-                <span className='text-xl font-bold text-black'>{`${getSymbolFromCurrency("NGN")}${cartItem.price}`}</span>
+                <span className='text-xl font-bold text-black'>{`${getSymbolFromCurrency("NGN")}${`200`}`}</span>
                 <div className='h-full border-r border-black' />
                 <div className='flex gap-3 items-center'>
-                  <span className='text-black font-medium text-lg'>{`Vote Count • ${cartItem.votes} votes`}</span>
+                  <span className='text-black font-medium text-lg'>{`Vote Count • ${`100`} votes`}</span>
                 </div>
               </div>
               <div className='w-fit py-4 border-b border-black'>
@@ -65,7 +64,7 @@ export default function Team() {
                   <motion.div key={key} initial={{ opacity: 0, x: 12 }} exit={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ type: "spring" }} className='w-full absolute top-0 bg-white h-full'></motion.div>
                 </AnimatePresence>
               </div>
-              <ScrollShadow orientation="horizontal" className='w-full overflow-x-scroll h-fit scrollbar-none'>
+              <ScrollShadow orientation='horizontal' className='w-full overflow-x-scroll h-fit scrollbar-none'>
                 <div className='w-fit flex gap-3'>
                   {new Array(4).fill("").map((item: any, idx: number) => {
                     return <div onClick={() => setkey(idx)} key={idx} className={`size-[80px] ${key === idx && "border border-secondary"} bg-gray-300 cursor-pointer hover:shadow-lg transition-shadow`}></div>;
@@ -99,10 +98,10 @@ export default function Team() {
                 })}
               </Select>
             </div>
-            <Button disableRipple className='h-[56px] flex gap-x-3  max-w-full w-full group !outline-none items-center px-4 py-0 !min-w-fit rounded-none border border-black bg-black data-[hover=true]:!bg-black !opacity-100 transition-colors shadow-none'>
+            <Button onPress={handleAddToCart} disableRipple className='h-[56px] flex gap-x-3  max-w-full w-full group !outline-none items-center px-4 py-0 !min-w-fit rounded-none border border-black bg-black data-[hover=true]:!bg-black !opacity-100 transition-colors shadow-none'>
               <span className='text-white transition-colors text-lg text-nowrap font-medium'>Add To Carts</span>
             </Button>
-            <Button disableRipple className='h-[56px] flex gap-x-3 max-w-ful  w-full group !outline-none items-center px-4 py-0 !min-w-fit rounded-none border border-black bg-background-secondary data-[hover=true]:!bg-background-secondary !opacity-100 transition-colors shadow-none'>
+            <Button onPress={() => router.push('/cart')} disableRipple className='h-[56px] flex gap-x-3 max-w-ful  w-full group !outline-none items-center px-4 py-0 !min-w-fit rounded-none border border-black bg-background-secondary data-[hover=true]:!bg-background-secondary !opacity-100 transition-colors shadow-none'>
               <span className='text-black transition-colors text-lg text-nowrap font-medium'>Procced to Checkout</span>
             </Button>
           </div>

@@ -17,6 +17,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang='en' className='scrollbar-thin scrollbar-none'>
       <body className={`${roboto.className} overflow-x-hidden w-full relative scrollbar-thin scrollbar-none`}>

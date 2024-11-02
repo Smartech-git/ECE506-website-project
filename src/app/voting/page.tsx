@@ -109,9 +109,11 @@ export default function OnlineVoting() {
             <p className='text-white font-medium max-w-[80%] text-center text-lg'>Support your favorite team by casting your votes. Every vote counts!</p>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", delay: 0.2 }}>
-            <Button disableRipple className='h-[56px] w-[126px] group gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit rounded-none border-none bg-white data-[hover=true]:!bg-tertiary hover:bg-tertiary !opacity-100 transition-colors shadow-none'>
-              <span className='text-black group-hover:text-white transition-colors text-lg text-nowrap font-medium'>Vote Now</span>
-            </Button>
+            <Link href="/voting/team-lineup" >
+              <Button disableRipple className='h-[56px] w-[126px] group gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit rounded-none border-none bg-white data-[hover=true]:!bg-tertiary hover:bg-tertiary !opacity-100 transition-colors shadow-none'>
+                <span className='text-black group-hover:text-white transition-colors text-lg text-nowrap font-medium'>Vote Now</span>
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -132,7 +134,7 @@ export default function OnlineVoting() {
       <section className='w-full gap-x-4 gap-y-16 bg-white flex flex-col items-center py-24 lg:px-16 sm:px-8 px-4'>
         <div className='w-full flex flex-col items-center gap-6'>
           <h1 className='sm:text-5xl text-4xl font-bold items-center text-black'>How to Vote</h1>
-          <p className='text-lg font-medium  lg:text-left text-center max-w-[80%] text-black'>Show your support and vote for your favorite crew before their time runs out</p>
+          <p className='text-lg font-medium  lg:text-left text-center max-w-[80%] text-black'>Follow these simple steps to cast your vote and support your favorite team.</p>
         </div>
         <div ref={avatarGroupRef} className='w-full h-fit'>
           <motion.div initial={{ opacity: 0, y: 12 }} animate={isAvatarGroupInView && { opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1 }} className='w-full flex justify-center flex-wrap gap-9'>
@@ -160,7 +162,7 @@ export default function OnlineVoting() {
           <div className='w-full flex items-end justify-between'>
             <div className='flex flex-col gap-4'>
               <h1 className='sm:text-5xl text-4xl font-bold text-black'>Choose Your Favorite Teams</h1>
-              <p className='text-base font-medium  w-full text-black'>Cast your votes and help your favorite crews reach the finals!</p>
+              <p className='text-base font-medium  w-full text-black'>Select your favorite crews you’ll like to see move forward!</p>
             </div>
             <Link href='/voting/team-lineup'>
               <Button disableRipple className='h-[56px] md:flex hidden group gap-x-1 !outline-none items-center px-4 py-0 !min-w-fit rounded-none border border-black bg-background-secondary data-[hover=true]:!bg-secondary data-[hover=true]:!border-secondary !opacity-100 transition-colors shadow-none'>

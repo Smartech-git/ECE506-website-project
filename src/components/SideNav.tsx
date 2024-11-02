@@ -6,9 +6,13 @@ import { Cart } from "../icons";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
+import { useGlobal } from "@/context/GLobalContext";
 
 export default function SideNav({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean; setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
   const pathname = usePathname();
+  const { cart } = useGlobal();
+
+
   return (
     <AnimatePresence>
       {isMenuOpen && (
@@ -40,9 +44,16 @@ export default function SideNav({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boo
               </Button>
             </Link>
             <Link href='/cart'>
-              <Button onPress={() => setIsMenuOpen(false)} disableRipple className='h-fit gap-x-1 !outline-none flex items-center justify-start px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
-                <div className='flex items-center hover:opacity-70 transition-opacity gap-x-1'>
-                  <Cart pathClassName={`${pathname === "/cart" && "!fill-secondary"} fill-black`} />
+              <Button onPress={() => setIsMenuOpen(false)} disableRipple className='h-fit gap-x-1 !outline-none overflow-visible flex items-center justify-start px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
+                <div className='flex items-center overflow-visible hover:opacity-70 transition-opacity gap-x-1'>
+                  <div className='relative overflow-visible flex items-center'>
+                    <Cart pathClassName={`${pathname === "/cart" && "!fill-secondary"} fill-black`} />
+                    {cart.length > 0 && (
+                      <motion.div initial={{ opacity: 0, scale: 0.5 }} exit={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring" }} className='px-2 rounded-full bg-black absolute -top-2 -right-3'>
+                        <span className='text-white text-xs leading-none font-bold'>{cart.length}</span>
+                      </motion.div>
+                    )}
+                  </div>
                   <span className={`${pathname === "/cart" && "!text-secondary"} text-black font-medium  text-base`}>Cart</span>
                 </div>
               </Button>

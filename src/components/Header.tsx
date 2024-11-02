@@ -7,9 +7,12 @@ import { Cart } from "../icons";
 import { usePathname } from "next/navigation";
 import { IoMenuSharp } from "react-icons/io5";
 import SideNav from "./SideNav";
+import { useGlobal } from "@/context/GLobalContext";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cart } = useGlobal();
   const pathname = usePathname();
 
   return (
@@ -18,34 +21,41 @@ export default function Header() {
         <Link href='/'>
           <Logo />
         </Link>
-        <Button onPress={() => setIsMenuOpen(true)} disableRipple className='h-fit md:hidden flex gap-x-1 !outline-none items-center px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
+        <Button onPress={() => setIsMenuOpen(true)} disableRipple className='h-fit md:hidden flex gap-x-1 !outline-none items-center px-0 py-0 !min-w-fit border-none rounded-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
           <IoMenuSharp className='text-white size-8' />
         </Button>
         <div className='w-fit md:flex hidden items-center gap-x-6'>
           <Link href='/'>
-            <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
+            <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none rounded-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
               <span className={` ${pathname === "/" && "!text-secondary"} text-white font-medium hover:opacity-70 transition-opacity text-base`}>Home</span>
             </Button>
           </Link>
           <Link href='/about-us'>
-            <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
+            <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none rounded-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
               <span className={`${pathname === "/about-us" && "!text-secondary"}  text-white font-medium hover:opacity-70 transition-opacity text-base`}>About us</span>
             </Button>
           </Link>
           <Link href='/events'>
-            <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
+            <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none rounded-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
               <span className={`${pathname === "/events" && "!text-secondary"}  text-white font-medium hover:opacity-70 transition-opacity text-base`}>Events</span>
             </Button>
           </Link>
           <Link href='/voting'>
-            <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
+            <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none rounded-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
               <span className={`${pathname.startsWith("/voting") && "!text-secondary"}  text-white font-medium hover:opacity-70 transition-opacity text-base`}>Voting</span>
             </Button>
           </Link>
-          <Link href='/cart'>
-            <Button disableRipple className='h-fit gap-x-1 !outline-none flex items-center px-0 py-0 !min-w-fit border-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
+          <Link href='/cart' className='relative'>
+            <Button disableRipple className='h-fit gap-x-1 overflow-visible !outline-none flex items-center px-0 py-0 !min-w-fit border-none rounded-none bg-transparent data-[hover=true]:!bg-transparent !opacity-100 transition-colors shadow-none'>
               <div className='flex items-center hover:opacity-70 transition-opacity gap-x-1'>
-                <Cart pathClassName={`${pathname === "/cart" && "!fill-secondary"}`} />
+                <div className='relative flex items-center'>
+                  <Cart pathClassName={`${pathname === "/cart" && "!fill-secondary"}`} />
+                  {cart.length > 0 && (
+                    <motion.div initial={{ opacity: 0, scale: 0.5 }} exit={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring" }} className='px-2 rounded-full bg-secondary absolute -top-2 -right-3'>
+                      <span className='text-white text-xs leading-none font-bold'>{cart.length}</span>
+                    </motion.div>
+                  )}
+                </div>
                 <span className={`${pathname === "/cart" && "!text-secondary"} text-white font-medium  text-base`}>Cart</span>
               </div>
             </Button>
