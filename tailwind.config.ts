@@ -6,13 +6,14 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|navbar|scroll-shadow|select|ripple|spinner|listbox|divider|popover).js"
+    "./node_modules/@nextui-org/theme/dist/components/(button|checkbox|navbar|scroll-shadow|select|ripple|spinner|form|listbox|divider|popover).js"
   ],
   theme: {
     extend: {
       colors: {
-        secondary: "#F7B42D",
-        tertiary: "#5FECBE",
+        secondary: "#183170",
+        primary: "#020713",
+        accent: "#3B71FB",
         background: {
           secondary: "#EEEEEE",
           tertiary: "#444444",
