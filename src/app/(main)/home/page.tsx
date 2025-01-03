@@ -368,11 +368,11 @@ export default function Home() {
           <h1 className='sm:text-5xl text-4xl max-w-[700px] font-bold text-center text-primary'>Choose the Perfect Plan for Your Yacht Adventures</h1>
         </div>
         <div ref={avatarGroupRef} className='w-full h-fit'>
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={isAvatarGroupInView && { opacity: 1, y: 0 }} transition={{ type: "spring", duration: 1 }} className='w-full flex justify-center flex-wrap gap-9'>
+          <div className='w-full flex justify-center flex-wrap gap-9'>
             <Pricing1 />
             <Pricing2 />
             <Pricing3 />
-          </motion.div>
+          </div>
         </div>
       </section>
       <div className='h-[500px] bg-secondary py-24 lg:px-16 sm:px-8 px-4 flex flex-col gap-4 items-center justify-center'>
