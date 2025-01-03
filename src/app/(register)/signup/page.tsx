@@ -61,7 +61,7 @@ export default function Page() {
         <Logo className='w-fit h-[25px] mx-auto' />
 
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='flex w-full flex-col gap-5'>
-          <h1 className="text-secondary text-3xl font-bold text-center">Sign up to join to sail</h1>
+          <h1 className="text-secondary text-3xl font-bold text-center">Sign up to join the sail</h1>
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <div className='flex flex-col gap-y-4'>
               <div>
