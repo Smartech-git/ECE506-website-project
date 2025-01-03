@@ -80,7 +80,7 @@ export default function Page() {
     console.log(data);
     setIsSubmitting(true);
     const session = await getSession();
-    console.log(session)
+    console.log(session);
     setIsSubmitting(false);
     if (session) {
       if (session?.user?.email !== data?.email || session?.user?.password !== data?.password) {

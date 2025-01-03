@@ -14,10 +14,11 @@ const config: Config = {
         secondary: "#183170",
         primary: "#020713",
         accent: "#3B71FB",
+        orange: '#FF7928',
+        border1: '#C8D7FF',
         background: {
-          secondary: "#EEEEEE",
-          tertiary: "#444444",
-          surface: "#1A1A1AB2",
+          main: "#F6F6F9",
+          
         },
         link: {
           secondary: "#666666",

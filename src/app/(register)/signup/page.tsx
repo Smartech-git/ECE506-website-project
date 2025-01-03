@@ -42,12 +42,7 @@ export default function Page() {
   };
 
   useEffect(() => {
-    let id = setTimeout(() => {
-      setSplashScreen(false);
-    }, 5000);
-    return () => {
-      clearTimeout(id);
-    };
+    router.prefetch("/home");
   }, []);
 
   useEffect(() => {
@@ -76,6 +71,7 @@ export default function Page() {
     setIsSubmitting(true);
     await createSession(data);
     setIsSubmitting(false);
+    router.push("/home");
     // setIsSubmitting(true);
   };
   return (

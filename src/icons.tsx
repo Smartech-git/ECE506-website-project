@@ -28,17 +28,17 @@ export const ArrowRigt = ({ className }: { className?: string }) => {
   );
 };
 
-export const Facebook = () => {
+export const Facebook = ({ className }: { className?: string }) => {
   return (
-    <svg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg className={className} width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path d='M22 12.6036C22 7.04699 17.5229 2.54248 12 2.54248C6.47715 2.54248 2 7.04699 2 12.6036C2 17.6253 5.65684 21.7877 10.4375 22.5425V15.5119H7.89844V12.6036H10.4375V10.387C10.4375 7.86544 11.9305 6.4726 14.2146 6.4726C15.3088 6.4726 16.4531 6.66911 16.4531 6.66911V9.14509H15.1922C13.95 9.14509 13.5625 9.9207 13.5625 10.7164V12.6036H16.3359L15.8926 15.5119H13.5625V22.5425C18.3432 21.7877 22 17.6255 22 12.6036Z' fill='white' />
     </svg>
   );
 };
 
-export const Instagram = () => {
+export const Instagram = ({ className }: { className?: string }) => {
   return (
-    <svg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg className={className} width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
         fillRule='evenodd'
         clipRule='evenodd'
