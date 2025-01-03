@@ -16,7 +16,7 @@ export default function SideNav({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boo
   return (
     <AnimatePresence>
       {isMenuOpen && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ type: "tween" }} className='w-full fixed top-0  z-40 h-[100svh] flex flex-col gap-6 p-4 bg-background-secondary'>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ type: "tween" }} className='w-full fixed top-0  z-40 h-[100svh] flex flex-col gap-6 p-4 bg-white'>
           <div className='w-full justify-between items-center flex'>
             <Link href='/home'>
               <div onClick={() => setIsMenuOpen(false)}>
