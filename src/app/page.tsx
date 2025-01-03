@@ -62,7 +62,6 @@ export default function Page() {
         setNextPageIdx((prevPageIdx) => (prevPageIdx === 3 ? 1 : ++prevPageIdx));
       }, 5000);
     }
-
     return () => {
       clearInterval(id);
     };

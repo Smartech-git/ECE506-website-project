@@ -45,25 +45,6 @@ export default function Page() {
     router.prefetch("/home");
   }, []);
 
-  useEffect(() => {
-    let id: any;
-    if (!splashScreen) {
-      id = setInterval(() => {
-        setNextPageIdx((prevPageIdx) => (prevPageIdx === 3 ? 1 : ++prevPageIdx));
-      }, 5000);
-    }
-
-    return () => {
-      clearInterval(id);
-    };
-  }, [splashScreen]);
-
-  const handleNext = () => {
-    setNextPageIdx((prevPageIdx) => (prevPageIdx === 3 ? 3 : ++prevPageIdx));
-  };
-  const handlePrevious = () => {
-    setNextPageIdx((prevPageIdx) => (prevPageIdx === 1 ? 1 : --prevPageIdx));
-  };
 
   const onSubmit = async (data: z.infer<typeof registrationFormSchema>, event: any) => {
     event.preventDefault();
@@ -80,6 +61,7 @@ export default function Page() {
         <Logo className='w-fit h-[25px] mx-auto' />
 
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='flex w-full flex-col gap-5'>
+          <h1 className="text-secondary text-3xl font-bold text-center">Sign up to join to sail</h1>
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <div className='flex flex-col gap-y-4'>
               <div>
@@ -152,7 +134,7 @@ export default function Page() {
               </div>
             </div>
             <Button type='submit' disabled={isSubmitting} className='my-5 h-[55px] w-full overflow-hidden rounded-full bg-accent px-16 py-4 text-base font-bold text-white'>
-              {!isSubmitting ? <Spinner className='size-5' pathClassName='fill-white' /> : "Sign up"}
+              {isSubmitting ? <Spinner className='size-5' pathClassName='fill-white' /> : "Sign up"}
             </Button>
             <p className='flex items-center justify-center gap-2 font-medium'>
               <span className='text-sm leading-[145%] tracking-[-0.00375rem] text-[#98a2b3]'>Already have and account?</span>{" "}
